@@ -47,6 +47,7 @@ const switchPlayer = function () {
 btnRoll.addEventListener('click', function () {
   if (playing) {
     // 1. Generating a random dice roll
+    // This line of code is to generate a rnadom dice from the number 1-6.
     const dice = Math.trunc(Math.random() * 6) + 1;
 
     // 2. Display dice
@@ -57,9 +58,8 @@ btnRoll.addEventListener('click', function () {
     if (dice !== 1) {
       // Add dice to current score
       currentScore += dice;
-      document.getElementById(
-        `current--${activePlayer}`
-      ).textContent = currentScore;
+      document.getElementById(`current--${activePlayer}`).textContent =
+        currentScore;
     } else {
       // Switch to next player
       switchPlayer();
@@ -77,7 +77,7 @@ btnHold.addEventListener('click', function () {
       scores[activePlayer];
 
     // 2. Check if player's score is >= 100
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= 20) {
       // Finish the game
       playing = false;
       diceEl.classList.add('hidden');
